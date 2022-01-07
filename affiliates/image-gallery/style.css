@@ -1,0 +1,3 @@
+#player {width: 100%; height: 100%; position: fixed; z-index: -99;}
+#myid {background: rgba(0,0,0,.1); width: 100%; height: 100%; position: fixed; z-index: 1;}
+iframe .html5-video-player .html5-watermark {display: none !important;}
