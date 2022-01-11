@@ -5,13 +5,43 @@ if(isset($_GET['code']))
 
 
 $cd = $_GET['code'];
+
+if(isset($_GET['code']))
+
+
+$cd = $_GET['code'];
+$amt = 10000;
+
+$que = dbConnect()->prepare("SELECT * FROM student WHERE studentCode=?");
+$que->execute([ $cd]);
+$rw = $que->fetch();
  
 ?>
+<style>
+    .img-cart {
+    display: block;
+    max-width: 50px;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+table tr td{
+    border:1px solid #FFFFFF;    
+}
+
+table tr th {
+    background:#eee;    
+}
+
+.panel-shadow {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}
+</style>
 <div class="breadcrumb-area">
     <div class="breadcrumb-top default-overlay bg-img pt-100 pb-95" style="background-image:url(assets/img/art.jpg);">
         <div class="container">
             <h2> Congratulations </h2>
-            <p>Your ward's registration is successful.</p>
+            <p>Your ward's application is successful.</p>
         </div>
     </div>
     <div class="breadcrumb-bottom">
@@ -30,40 +60,60 @@ $cd = $_GET['code'];
         
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div class="row">
-                    <div class="col-lg-3"></div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="cart-tax">
-                            <div class="tax-wrapper">
-                            <h2 align="center" class="cart-bottom-title section-bg-gray">Congratulations</h2>
-                                <p align='center' style="color: #111 !important;">
-                                    Your application is well received<br>
-                                    <a href="" class="text-danger">(Download our College Prospectus Now)</a><br>
-                                        Thank You
-                                </p><br>
-                                <div class="tax-select-wrapper">
-                                    
-                                    <div class="tax-select">
-                                        <p align="center" class="text-primary">
-                                            To further your child’s enrolment:
-                                        </p>
-                                    </div><hr>
-                                    <a href="assets/registration.pdf" class="btn btn-warning btn-block"><b class="text-white">Download the Application Form</b></a>
-                                    <h3 class="text-primary mt-2 mb-2" align="center">OR</h3>
-                                    <a href="admission-continue?code=<?php echo $cd ?>" class="btn btn-primary btn-block">
-                                        <b class="text-white">Click to Apply Complete Registration  </b>
-                                    </a> 
-                                   
-                                </div>
-                            </div>
-                        </div>
+            <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th width="20%">Registration</th>
+                                <th style="text-align: center;">Details</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                
+                                <tr>
+                                    <th>First Name</th>
+                                    <td style="text-align: center;">  <strong><?php echo $rw['fname'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Last Name</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['lname'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Date of Birth</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['dob'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Class Enroled</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['classenrol'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Parent Name</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['ffname'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Parent Email</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['email'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Phone</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['phone'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Address</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['faddr'] ?></strong></td>
+                                </tr>
+                                <tr>
+                                    <th>Occupation</th>
+                                    <td style="text-align: center;"><strong><?php echo $rw['foccu'] ?></strong></td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="col-lg-3"></div>
-                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 
 

@@ -292,7 +292,7 @@ $(document).ready(function () {
 		return false;
 	}
 	else if((phoneValues.length < 9)||
-			(phoneValues.length > 14)) {
+			(phoneValues.length > 11)) {
 		$('#phonechecks').show();
 		$('#phonechecks').html
                 ("Phone number is not valid");
@@ -329,86 +329,20 @@ $(document).ready(function () {
 		$('#emailcheck').hide();
 	}
 	}
-        
-        // Validate Gender
-	$('#gendercheck').hide();
-	let genderError = true;
-	$('#gender').keyup(function () {
-		validateGen();
-	});
-	
-	function validateGen() {
-	let genValues = $('#gender').val();
-	if (genValues.length == '') {
-	$('#gendercheck').show();
-		genderError = false;
-		return false;
-	}
-	else if((genValues.length < 4)) {
-		$('#gendercheck').show();
-		$('#gendercheck').html
-                ("Gender is not valid");
-		genderError = false;
-		return false;
-	}
-	else {
-		$('#gendercheck').hide();
-	}
-	}
+  
         
         
-        // Validate School
-	$('#schcheck').hide();
-	let schError = true;
-	$('#sch').keyup(function () {
-		validateSch();
-	});
-	
-	function validateSch() {
-	let schValues = $('#sch').val();
-	if (schValues.length == '') {
-	$('#schcheck').show();
-		schError = false;
-		return false;
-	}
-	else if((schValues.length < 5)) {
-		$('#schcheck').show();
-		$('#schcheck').html
-                ("School is too short");
-		schError = false;
-		return false;
-	}
-	else {
-		$('#schcheck').hide();
-	}
-	}
+  
         
         
         // Validate Previous class
-	$('#classcheck').hide();
-	let clsError = true;
-	$('#pclass').keyup(function () {
-		validatePre();
-	});
+	// $('#classcheck').hide();
+	// let clsError = true;
+	// $('#pclass').keyup(function () {
+	// 	validatePre();
+	// });
 	
-	function validatePre() {
-	let clsValues = $('#pclass').val();
-	if (clsValues.length == '') {
-	$('#classcheck').show();
-		clsError = false;
-		return false;
-	}
-	else if((clsValues.length < 3)) {
-		$('#classcheck').show();
-		$('#classcheck').html
-                ("Present class is too short");
-		clsError = false;
-		return false;
-	}
-	else {
-		$('#classcheck').hide();
-	}
-	}
+	
       
       
       // Validate enrol class
@@ -438,30 +372,60 @@ $(document).ready(function () {
 	}
         
          // Validate DoB
-	$('#dobcheck').hide();
-	let dobError = true;
-	$('#dob').keyup(function () {
-		validateDob();
+	$('#profcheck').hide();
+	let profError = true;
+	$('#prof').keyup(function () {
+		validateProf();
 	});
-	
-	function validateDob() {
-	let dobValues = $('#dob').val();
-	if (dobValues.length == '') {
-	$('#dobcheck').show();
-		dobError = false;
+
+	function validateProf() {
+	let profValues = $('#prof').val();
+	if (profValues.length == '') {
+	$('#profcheck').show();
+		profError = false;
 		return false;
 	}
-	else if((dobValues.length < 3)) {
-		$('#dobcheck').show();
-		$('#dobcheck').html
-                ("Date of birth is not valid");
-		dobError = false;
+	else if((profValues.length < 3)) {
+		$('#profcheck').show();
+		$('#profcheck').html
+                ("Your profession is required");
+		profError = false;
 		return false;
 	}
 	else {
-		$('#dobcheck').hide();
+		$('#profcheck').hide();
 	}
 	}
+
+
+	// Validate Parent name
+	$('#parentcheck').hide();
+	let parrentError = true;
+	$('#parent').keyup(function () {
+		validateParent();
+	});
+
+	function validateParent() {
+	let enrValues = $('#parent').val();
+	if (enrValues.length == '') {
+	$('#parentcheck').show();
+	parrentError = false;
+		return false;
+	}
+	else if((enrValues.length < 3)) {
+		$('#parentcheck').show();
+		$('#parentcheck').html
+        ("Your profession is required");
+		parrentError = false;
+		return false;
+	}
+	else {
+		$('#parentcheck').hide();
+	}
+	}
+
+	
+
 
 
 	
